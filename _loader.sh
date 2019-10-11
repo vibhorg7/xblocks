@@ -24,7 +24,7 @@ fi
 
 if [ -z ${FABRIC_START_TIMEOUT+x} ]; then
  echo "FABRIC_START_TIMEOUT is unset, assuming 15 (seconds)"
- export FABRIC_START_TIMEOUT=15
+ export FABRIC_START_TIMEOUT=30
 else
 
    re='^[0-9]+$'

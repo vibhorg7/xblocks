@@ -68,6 +68,8 @@ docker-compose -f "${DOCKER_FILE}" up -d
 echo "sleeping for ${FABRIC_START_TIMEOUT} seconds to wait for fabric to complete start up"
 sleep ${FABRIC_START_TIMEOUT}
 
+export MSYS_NO_PATHCONV=1
+
 # Create the channel
 docker exec peer0.org1.example.com peer channel create -o orderer.example.com:7050 -c composerchannel -f /etc/hyperledger/configtx/composer-channel.tx
 

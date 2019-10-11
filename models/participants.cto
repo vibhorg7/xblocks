@@ -1,0 +1,63 @@
+namespace org.xbank.partyInfo
+
+import org.xbank.assetInfo.account
+
+
+abstract participant associate{
+    o String name
+    o contactInfo contact
+}
+
+concept contactInfo{
+ o String phoneNo
+ o String addres
+ o String email
+}
+
+participant bankEmployee identified by bankID{
+  o String bankID
+  o String post
+  o String branch
+    
+}
+
+
+participant vehicalDealer identified by dealerID{
+  o String dealerID
+  o String[] dealerRec
+}
+
+participant transporter identified by transporterID{
+  o String transporterID
+  --> account owns
+  
+}
+
+participant regulator identified by regulatorID{
+	o String regulatorID
+}
+
+participant customer identified by customerID extends associate{
+ o String customerID
+ o String nationality
+ --> account owns
+ o String occupation
+ o String gender 
+}
+
+participant regDept identified by regDeptID {
+	o String regDeptID
+    o String[] homeRec
+}
+
+participant insProvider identified by insProviderName{
+	o String insProviderName
+    o Integer[] policy_given_rec 
+    --> account owns
+}
+
+participant stateGovernment identified by stateName{
+  o String stateName
+  --> account owns
+} 
+

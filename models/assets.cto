@@ -1,0 +1,39 @@
+namespace org.xbank.assetInfo
+import org.xbank.partyInfo.*
+
+  
+//bank account owned by various entities  
+asset account identified by accountID{
+	o String accountID
+    o Double balance
+    o atype accountType
+    o String ownerID
+    o String ownerName
+    
+}
+
+enum atype{
+  o Savings
+  o Loan
+}
+
+
+asset homeLoanDetails identified by loanNumber{
+  o String loanNumber
+  o Double amount optional
+  o String takenby optional
+  o Double monthly_emi optional
+  o Integer duration_of_repayment optional
+  o Double roi optional
+  
+ }
+
+asset vehicalLoanDetails identified by vehicleLoanNumber{
+  o String vehicleLoanNumber
+  o Double amount optional
+  o String takenby optional
+  o Double monthly_emi optional
+  o Integer duration_of_repayment optional
+  o Double roi optional
+  
+ }

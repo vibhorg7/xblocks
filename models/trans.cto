@@ -1,0 +1,87 @@
+namespace org.xbank.transaction
+
+import org.xbank.assetInfo.*
+import org.xbank.partyInfo.*
+  
+transaction Transfer{
+	--> account fromAcc
+    --> account dealer
+    o Double price
+    o Double quantity
+    --> transporter transporter
+}
+
+transaction homeLoan{
+  --> account loanee
+  o String name
+  --> customer cs
+  o Double price
+  o Double areaSqFt
+  o Integer creditScore
+  o Double salary
+  o String HomeID
+  o Integer year
+  --> homeLoanDetails loan_no
+  --> regDept registerar
+  --> insProvider insurance_provider_name
+}
+
+transaction vehicleLoan{
+  --> account loanee
+  o String name
+  --> customer cs
+  o Double price
+  o Double creditScore
+  o Double salary
+  o String modelNumber
+  o vtype type
+  o Integer  no_of_year
+  --> vehicalLoanDetails loan_no
+  --> vehicalDealer dealer
+  --> insProvider insurance_provider_name
+}
+
+enum vtype{
+  o wheeler2
+  o wheeler4
+}
+
+transaction retirementBenefitProgram{
+  o String employmentType
+  o Integer age
+  o Integer yearsOfService
+  o Integer salary
+  --> customer user
+}
+  
+transaction commercialLoan{
+  --> account loanee
+  o String name
+  --> customer cs
+  o Double creditScore
+  o Double salary
+  o String modelNumber
+  o Double price
+  o vtype type
+  o Integer no_of_year
+  --> vehicalLoanDetails loan_no
+  --> vehicalDealer dealer
+  --> insProvider insurance_provider_name
+}
+
+
+
+
+transaction governmentBenefitScheme{
+  --> customer user
+  --> stateGovernment belongs_to
+  o btype type_of_benefit
+  o Integer loan_amt optional
+  o Double monthly_salary
+}
+
+enum btype{
+  o women_welfare_scheme
+  o farmer_loan
+}
+  
